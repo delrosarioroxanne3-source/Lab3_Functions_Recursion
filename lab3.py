@@ -40,8 +40,16 @@ print("Outside function (global):", global_value)
 
 # %%
 # CELL 4 | PARAMETRIC PROCESSING
+# Example student info (replace these with your actual values or previous cell variables)
+SURNAME = "DelRosario"
+STUDENT_ID = "TUPM-25-0924"
+SEED_DIGIT = int(STUDENT_ID[-1])
+ID_SUM = sum(int(d) for d in STUDENT_ID if d.isdigit())
+
 def user_summary(title, scores, **info):
-    print("----", title, "----")
+    """Displays a student summary with scores, total, average, and extra info."""
+    
+    print(f"---- {title} ----")
     
     total = sum(scores)
     average = total / len(scores)
@@ -50,19 +58,20 @@ def user_summary(title, scores, **info):
     print("Total:", total)
     print("Average:", round(average, 2))
     
-    for k, v in info.items():
-        print(f"{k}: {v}")
+    # Print extra info passed as keyword arguments
+    for key, value in info.items():
+        print(f"{key.capitalize()}: {value}")
     
     return average
 
+
 # Example run
 avg = user_summary(
-    f"{LAST_NAME} Academic Report",
-    [SEED_DIGIT, 10, ID_SUM % 100],
-    id=STUDENT_ID,
-    surname=LAST_NAME
+    title=f"{SURNAME} Academic Report",
+    scores=[SEED_DIGIT, 10, ID_SUM % 100],
+    ID=STUDENT_ID,
+    Surname=SURNAME
 )
-
 # %%
 # CELL 5 | RETURN MECHANISM
 def compute_area(radius):
