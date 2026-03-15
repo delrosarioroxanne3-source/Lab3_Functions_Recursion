@@ -3,7 +3,7 @@
 LAST_NAME = "DelRosario"
 STUDENT_ID = "TUPM-25-0924"
 
-SEED_DIGIT = int(STUDENT_ID[-1])
+SEED_DIGIT = int(STUDENT_ID[-4])
 ID_SUM = sum(int(d) for d in STUDENT_ID if d.isdigit())
 NAME_LENGTH = len(LAST_NAME)
 
